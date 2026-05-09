@@ -1,4 +1,4 @@
-FROM docker/sandbox-templates:shell-docker
+FROM docker/sandbox-templates:shell
 
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -10,5 +10,3 @@ RUN curl -fsSL https://bun.sh/install | bash
 ENV PATH="/home/agent/.bun/bin:${PATH}"
 
 RUN bun --version
-
-CMD ["sleep", "infinity"]

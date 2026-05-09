@@ -8,4 +8,4 @@ push:
 	docker push $(IMAGE)
 
 run:
-	sbx run --template $(IMAGE) --kit ./kits/huginum --branch auto shell $(PROJECT)
+	sbx run --kit ./kits/huginum --branch auto huginum-code $(PROJECT)

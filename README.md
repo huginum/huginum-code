@@ -10,10 +10,10 @@ ghcr.io/huginum/huginum-code-bun:dev
 
 ## Jump Into Development
 
-Use the published Docker sandbox image with the included Huginum kit:
+Use the included Huginum agent kit:
 
 ```sh
-sbx run --template ghcr.io/huginum/huginum-code-bun:dev --kit ./kits/huginum --branch auto shell .
+sbx run --kit ./kits/huginum --branch auto huginum-code .
 ```
 
 The `Makefile` wraps the same command:
@@ -30,7 +30,7 @@ make run PROJECT=/path/to/project
 
 ## What Is In The Sandbox
 
-The Bun template is defined in `templates/bun/Dockerfile`. It extends the shell Docker sandbox template and installs:
+The Bun template is defined in `templates/bun/Dockerfile`. It extends Docker's shell sandbox template and installs:
 
 - Bun
 - Git
@@ -40,7 +40,7 @@ The Bun template is defined in `templates/bun/Dockerfile`. It extends the shell 
 - fd
 - unzip and xz utilities
 
-The Huginum kit is defined in `kits/huginum/spec.yaml`. It sets `BUN_INSTALL` and allows network access to Bun, npm, GitHub, and GitHubusercontent hosts.
+The Huginum kit is defined in `kits/huginum/spec.yaml`. It is an sbx agent kit that uses the published GHCR image, starts a Bash shell, sets `BUN_INSTALL`, and allows network access to Bun, npm, GitHub, and GitHubusercontent hosts.
 
 ## Build Locally
 
@@ -62,10 +62,10 @@ Override the image name if needed:
 make build IMAGE=local/huginum-code-bun:dev
 ```
 
-Then run that local image with sbx:
+To test a local image with sbx, temporarily edit `agent.image` in `kits/huginum/spec.yaml` to point at your image name, then run:
 
 ```sh
-make run IMAGE=local/huginum-code-bun:dev
+make run
 ```
 
 ## Publish

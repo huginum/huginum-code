@@ -1,8 +1,15 @@
 # kits/huginum/spec.yaml
 schemaVersion: "1"
-kind: mixin
+kind: agent
 name: huginum-code
 displayName: Huginum Code Base Kit
+description: Bun-ready shell sandbox for Huginum development.
+
+agent:
+  image: "ghcr.io/huginum/huginum-code-bun:dev"
+  persistence: persistent
+  entrypoint:
+    run: [bash]
 
 environment:
   variables:
