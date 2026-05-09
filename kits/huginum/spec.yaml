@@ -1,0 +1,17 @@
+# kits/huginum/spec.yaml
+schemaVersion: "1"
+kind: mixin
+name: huginum-code
+displayName: Huginum Code Base Kit
+
+environment:
+  variables:
+    BUN_INSTALL: /home/agent/.bun
+
+network:
+  allowedDomains:
+    - "bun.sh:443"
+    - "registry.npmjs.org:443"
+    - "*.npmjs.org:443"
+    - "github.com:443"
+    - "*.githubusercontent.com:443"
